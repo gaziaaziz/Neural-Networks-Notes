@@ -8,3 +8,6 @@ def rmse_derivative(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
     if rmse_value == 0:
         return np.zeros_like(y_true)
     return -(y_true - y_pred)/ (rmse_value * y_true.size)
+
+
+
