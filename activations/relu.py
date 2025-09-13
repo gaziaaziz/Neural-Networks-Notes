@@ -1,7 +1,11 @@
 import numpy as np
+class Relu:
+    def __init__(self):
+        self.activation = None
 
-def relu(x: np.ndarray)-> np.ndarray:
-    return np.maximum(0, x)
+    def forward(self, x):
+        self.activation = np.maximum(0, x)
+        return self.activation
 
-def relu_derivative(x: np.ndarray) -> np.ndarray:
-    return np.where(x > 0, 1, 0)
+    def derivative(self, grad_output):
+        return grad_output * (self.activation > 0).astype(float)

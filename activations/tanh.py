@@ -1,7 +1,11 @@
 import numpy as np
 
-def tanH(x: np.ndarray) -> np.ndarray:
-    return np.tanh(x)
+class Tanh:
+    def  __init__(self):
+        self.activation = None
+def forward(self, x):
+    self.activation = np.tanh(x)
+    return self.activation
 
-def tanH_derivative(x):
-    return 1 - np.tanh(x) ** 2
+def derivative(self, grad_output):
+    return grad_output * (1 - self.activation ** 2)

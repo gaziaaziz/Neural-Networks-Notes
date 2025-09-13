@@ -1,6 +1,6 @@
 import numpy as np
 
-class sgd_momentum:
+class SgdMomentum:
     def __init__(self, lr = 0.01, beta = 0.9):
         self.lr = lr
         self.beta = beta

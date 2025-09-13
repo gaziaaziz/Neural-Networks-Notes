@@ -1,7 +1,14 @@
 import numpy as np
 
-def mse(y_true: np.ndarray, y_pred: np.ndarray) -> float:
-    return np.mean((y_true - y_pred) ** 2)
+class MSE:
 
-def mse_derivative(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
-    return -2 * (y_true - y_pred) / y_true.size
+    def __init__(self):
+        self.y_pred = None
+        self.y_true = None
+
+    def forward(self, y_true, y_pred):
+        self.y_true, self.y_pred = y_true, y_pred
+        return np.mean((self.y_true - self.y_pred) ** 2)
+
+    def derivative(self):
+        return -2 * (self.y_true - self.y_pred) / self.y_true.size

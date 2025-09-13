@@ -1,8 +1,12 @@
 import numpy as np
+class Sigmoid:
+    def __init__(self):
+        self.activation = None
 
-def sigmoid(x: np.ndarray) -> np.ndarray:
-    return 1/ (1 + np.exp(-x))
+    def forward(self, x):
+        self.activation = 1/(1+np.exp(-x))
+        return self.activation
 
-def sigmoid_derivative(x: np.ndarray) -> np.ndarray:
-    return sigmoid(x) * (1-sigmoid(x))
+    def derivative(self, grad_output):
+        return grad_output*(self.activation * (1-self.activation))
 

@@ -1,6 +1,6 @@
 import numpy as np
 
-class rms_prop:
+class RmsProp:
     def __init__(self,ma, lr = 0.01, beta = 0.9, eps = 1e-8):
         self.lr = lr
         self.beta = beta

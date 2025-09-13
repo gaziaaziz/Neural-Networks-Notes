@@ -1,8 +1,13 @@
 import numpy as np
 
-def identity(x: np.ndarray) -> np.ndarray:
-    return x
+class Identity:
+    def __init__(self):
+        self.activation = None
 
-def identity_derivative(x: np.ndarray) -> np.ndarray:
-    return np.ones_like(x)
+    def forward(self, x):
+        self.activation = x
+        return self.activation
+
+    def derivative(self, grad_output):
+        return grad_output* (np.ones_like(self.activation))
 
