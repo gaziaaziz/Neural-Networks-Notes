@@ -13,4 +13,5 @@ class BinaryCrossEntropy:
         return -np.mean(self.y_true * np.log(self.y_pred) + (1-self.y_true) * np.log(1-self.y_pred))
 
     def derivative(self, y_true, y_pred):
-        return (self.y_pred - self.y_true) / (self.y_pred * (1 - self.y_pred) * self.y_true.size)
+        m = self.y_true.shape[0]
+        return (self.y_pred - self.y_true) / (self.y_pred * (1 - self.y_pred) * m)

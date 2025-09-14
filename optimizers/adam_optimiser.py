@@ -8,6 +8,7 @@ class Adam:
         self.v = None
         self.m = None
         self.t = 0
+        self.eps = eps
 
     def update_params(self, params, grads):
         if self.m is None:
@@ -22,7 +23,7 @@ class Adam:
             self.v[i] = self.beta2 * self.v[i] + (1-self.beta2) * (grads[i] ** 2)
             m_hat = self.m[i] / (1-(self.beta1 ** self.t))
             v_hat = self.v[i] / (1-(self.beta2 ** self.t))
-            new_param = params[i] - (m_hat * self.lr)  / np.sqrt(v_hat) + self.eps
+            new_param = params[i] - (m_hat * self.lr)  / (np.sqrt(v_hat) + self.eps)
             updated_param.append(new_param)
         return updated_param
 
